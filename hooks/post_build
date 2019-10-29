@@ -4,3 +4,6 @@ echo "#                                                       #"
 echo "#                      Post build                       #"
 echo "#                                                       #"
 echo "#########################################################"
+
+docker tag $IMAGE_NAME $DOCKER_REPO:untested
+docker push $DOCKER_REPO:untested
