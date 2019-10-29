@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  service:
+    image: dorinbotan/docker_autobuild
+    volumes:
+      - "test:/root"
+  sut:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    volumes:
+      - "test:/test"
+    depends_on:
+      - service
+    command: [ "/root/test.sh", "1" ]
+
+volumes:
+  test:
