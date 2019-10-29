@@ -13,7 +13,7 @@ services:
       - "test:/test"
     depends_on:
       - service
-    command: [ "/root/test.sh", "1" ]
+    command: [ "/root/test.sh", "0" ]
 
 volumes:
   test:
