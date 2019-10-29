@@ -1,6 +1,17 @@
 version: "3"
 
 services:
-  sut:
+  service:
     build: .
-    command: /root/successful_test.sh
+    volumes:
+      - "test:/root"
+  sut:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    volumes:
+      - "test:/test"
+    command: [ "/root/test.sh", "0" ]
+
+volumes:
+  test:
